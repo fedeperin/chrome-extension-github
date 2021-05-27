@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #111;
+    padding: 10px;
+    width: 300px;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+form input {
+    border: 2px solid #555;
+    border-radius: 4px;
+    outline: none;
+    padding: 7px;
+    width: 100%;
+    transition: all .5s ease;
+    margin-right: 10px;
+}
+
+form input:focus {
+    border: 2px solid #111;
+}
+
+form button {
+    padding: 7px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: #09528d;
+    color: #fff;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+form button:hover, form button:focus {
+    opacity: 0.8;
+}
+
+.usuario {
+    display: flex;
+}
+
+.usuario .datos_texto {
+    text-align: right;
+}
+
+.usuario a.nombre {
+    font-size: 20px;
+    color: #eee;
+}
+.usuario p.nombreLogin {
+    margin-top: 5px;
+    color: #eee;
+    opacity: 0.8;
+}
+
+.usuario img {
+    width: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.repos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.repos h2 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.repos .repo {
+    margin-bottom: 20px;
+    padding: 7px;
+    background: #222;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.repos .repo:hover {
+    opacity: 0.8;
+}
+
+.repos .repo .chico {
+    font-size: 10px;
+}
+.repos .repo h3 {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.repos .repo .descripcion {
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-top: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
