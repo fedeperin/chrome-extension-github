@@ -1,5 +1,6 @@
-# Extension Chrome Github
-Una extensión para Google Chrome desde la que se pueden ver todos los usuarios de GitHub y sus repositorios. Utiliza la API rest de GitHub para traer los perfiles y su información. <br><br>
+# Chrome Extension Github
+An extension for Google Chrome from which all GitHub users and their repositories can be seen. Use the GitHub rest API to fetch the profiles and their information.
+<br><br>
 
-### Instalación
-Para instalar la extensión el el navegador, descargar el repositorio, dirigirse desde Google Chrome a chrome://extensions. Ya dentro activar el modo desarrollador y tocando "cargar descomprimida" seleccionar la carpeta que descargaste ya descomprimida.
+### Installation
+To install the extension in the browser, download the repository, go from Google Chrome to chrome://extensions. Once inside, activate the developer mode and touching "load unzipped" select the folder that you downloaded already unzipped.
