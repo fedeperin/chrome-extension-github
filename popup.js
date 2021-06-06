@@ -1,48 +1,48 @@
-const nombreDOM = document.querySelector('.usuario .nombre')
-const nombreLoginDOM = document.querySelector('.usuario .nombreLogin')
-const imagenPerfilDOM = document.querySelector('.usuario div img')
+const nameDOM = document.querySelector('.user .name')
+const loginNameDOM = document.querySelector('.user .loginName')
+const profileImageDOM = document.querySelector('.user div img')
 const reposDOM = document.querySelector('.repos')
 const form = document.querySelector('form')
 const input = document.querySelector('form input')
 
-let usuario = 'fedeperin'
+let user = 'fedeperin'
 
-if(!localStorage.getItem('usuario')) {
-    localStorage.setItem('usuario', usuario)
+if(!localStorage.getItem('user')) {
+    localStorage.setItem('user', user)
 }else {
-    usuario = localStorage.getItem('usuario')
-    input.value = usuario
+    user = localStorage.getItem('user')
+    input.value = user
 }
 
-function mostrarRepos(repos) {
+function showRepos(repos) {
     repos.forEach(repo => {
         let repoCont = document.createElement('div')
         repoCont.classList.add('repo')
 
-        let repoNombre = document.createElement('h3')
-        repoNombre.textContent = repo.name
+        let repoName = document.createElement('h3')
+        repoName.textContent = repo.name
 
-        let repoDescripcion = document.createElement('p')
-        repoDescripcion.classList.add('descripcion')
-        repoDescripcion.textContent = repo.description
+        let repoDescription = document.createElement('p')
+        repoDescription.classList.add('description')
+        repoDescription.textContent = repo.description
 
-        let repoEstrellas = document.createElement('p')
-        repoEstrellas.classList.add('chico')
-        repoEstrellas.textContent = `Estrellas: ${repo.stargazers_count}`
+        let repoStars = document.createElement('p')
+        repoStars.classList.add('small')
+        repoStars.textContent = `Stars: ${repo.stargazers_count}`
 
         let repoForks = document.createElement('p')
-        repoForks.classList.add('chico')
+        repoForks.classList.add('small')
         repoForks.textContent = `Forks: ${repo.forks}`
 
-        let repoLenguaje = document.createElement('p')
-        repoLenguaje.classList.add('chico')
-        repoLenguaje.textContent = `Lenguaje principal: ${repo.language}`
+        let repoLanguage = document.createElement('p')
+        repoLanguage.classList.add('small')
+        repoLanguage.textContent = `Principal language: ${repo.language}`
 
-        repoCont.appendChild(repoNombre)
-        repoCont.appendChild(repoDescripcion)
-        repoCont.appendChild(repoEstrellas)
+        repoCont.appendChild(repoName)
+        repoCont.appendChild(repoDescription)
+        repoCont.appendChild(repoStars)
         repoCont.appendChild(repoForks)
-        repoCont.appendChild(repoLenguaje)
+        repoCont.appendChild(repoLanguage)
         reposDOM.appendChild(repoCont)
 
         repoCont.addEventListener('click', () => {
@@ -53,25 +53,26 @@ function mostrarRepos(repos) {
 
 function fetchData() {
     reposDOM.innerHTML = ''
-    fetch(`https://api.github.com/users/${usuario}`)
+    localStorage.setItem('user', user)
+    fetch(`https://api.github.com/users/${user}`)
         .then((res) => res.json())
         .then((data) => {
             
-            imagenPerfilDOM.setAttribute('src', data.avatar_url)
-            imagenPerfilDOM.addEventListener('click', () => {
+            profileImageDOM.setAttribute('src', data.avatar_url)
+            profileImageDOM.addEventListener('click', () => {
                 window.open(data.html_url)
             })
-            nombreDOM.textContent = data.name
-            nombreDOM.setAttribute('href', data.html_url)
-            nombreLoginDOM.textContent = data.login
+            nameDOM.textContent = data.name
+            nameDOM.setAttribute('href', data.html_url)
+            loginNameDOM.textContent = data.login
     
-            fetch(`https://api.github.com/users/${usuario}/repos`)
+            fetch(`https://api.github.com/users/${user}/repos`)
                 .then((res) => res.json())
                 .then((data) => {
-                    mostrarRepos(data)
+                    showRepos(data)
                 })
                 .catch((e) => console.log(e));
-        })
+            })
         .catch((e) => console.log(e));
 }
 
@@ -79,7 +80,7 @@ fetchData()
 
 form.addEventListener('submit', e => {
     e.preventDefault()
-    localStorage.setItem('usuario', usuario)
-    usuario = input.value
+    localStorage.setItem('user', user)
+    user = input.value
     fetchData()
 })

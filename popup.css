@@ -48,25 +48,25 @@ form button:hover, form button:focus {
     opacity: 0.8;
 }
 
-.usuario {
+.user {
     display: flex;
 }
 
-.usuario .datos_texto {
+.user .text-data {
     text-align: right;
 }
 
-.usuario a.nombre {
+.user a.name {
     font-size: 20px;
     color: #eee;
 }
-.usuario p.nombreLogin {
+.user p.loginName {
     margin-top: 5px;
     color: #eee;
     opacity: 0.8;
 }
 
-.usuario img {
+.user img {
     width: 50%;
     border-radius: 50%;
     cursor: pointer;
@@ -98,7 +98,7 @@ form button:hover, form button:focus {
     opacity: 0.8;
 }
 
-.repos .repo .chico {
+.repos .repo .small {
     font-size: 10px;
 }
 .repos .repo h3 {
@@ -106,7 +106,7 @@ form button:hover, form button:focus {
     font-weight: normal;
 }
 
-.repos .repo .descripcion {
+.repos .repo .description {
     font-size: 15px;
     margin-bottom: 5px;
     margin-top: 7px;
